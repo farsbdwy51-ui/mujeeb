@@ -1,0 +1,161 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --green: #075e54;
+  --green-2: #128c7e;
+  --wa: #25d366;
+  --ink: #111b21;
+  --muted: #5b6b73;
+  --bg: #f7f8f7;
+  --card: #ffffff;
+}
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Cairo', sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.8;
+}
+
+/* ---------- ناف ---------- */
+nav {
+  position: sticky; top: 0; z-index: 10;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 12px 20px;
+  background: rgba(255,255,255,.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid #e5e9e7;
+}
+.brand { font-weight: 900; font-size: 22px; color: var(--green); }
+.brand span { font-size: 12px; font-weight: 600; color: var(--muted); display: block; line-height: 1.2; }
+
+/* ---------- أزرار ---------- */
+.btn {
+  display: inline-block;
+  background: var(--wa);
+  color: #fff; font-weight: 700;
+  border-radius: 12px;
+  padding: 8px 18px;
+  text-decoration: none;
+  transition: transform .12s ease, box-shadow .12s ease;
+  box-shadow: 0 2px 8px rgba(37,211,102,.35);
+}
+.btn:hover { transform: translateY(-2px); box-shadow: 0 4px 14px rgba(37,211,102,.45); }
+.btn-sm { font-size: 14px; }
+.btn-lg { font-size: 17px; padding: 14px 28px; }
+.btn-block { display: block; text-align: center; margin-top: 18px; }
+.btn-outline {
+  background: transparent; color: var(--green);
+  border: 2px solid var(--green-2);
+  box-shadow: none;
+}
+
+/* ---------- الهيرو ---------- */
+.hero {
+  text-align: center;
+  padding: 56px 20px 48px;
+  background: linear-gradient(180deg, #e7f6ef 0%, var(--bg) 100%);
+}
+.badge {
+  display: inline-block;
+  background: #fff; color: var(--green);
+  border: 1px solid #cdeee0;
+  border-radius: 999px;
+  padding: 6px 16px; font-size: 13px; font-weight: 700;
+  margin-bottom: 18px;
+}
+.hero h1 { font-size: 30px; font-weight: 900; line-height: 1.5; }
+.hero h1 span { color: var(--green-2); }
+.hero .sub { max-width: 620px; margin: 16px auto 0; color: var(--muted); font-size: 16px; }
+.cta-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 26px; }
+.tiny { font-size: 12px; color: var(--muted); margin-top: 14px; }
+
+/* ---------- سكشنز ---------- */
+.section { padding: 48px 20px; max-width: 960px; margin: 0 auto; }
+.section.alt { background: #eef6f3; max-width: none; }
+.section.alt > * { max-width: 960px; margin-left: auto; margin-right: auto; }
+.section h2 { font-size: 24px; font-weight: 900; text-align: center; margin-bottom: 22px; }
+.lead { text-align: center; color: var(--muted); margin-bottom: 20px; }
+
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+.card {
+  background: var(--card);
+  border: 1px solid #e5e9e7;
+  border-radius: 16px;
+  padding: 22px;
+  text-align: center;
+}
+.card .ic { font-size: 34px; margin-bottom: 10px; }
+.card h3 { font-size: 17px; font-weight: 800; margin-bottom: 6px; }
+.card p { font-size: 14px; color: var(--muted); }
+
+.esc-note {
+  margin-top: 18px;
+  background: #fff8e1;
+  border: 1px solid #f0e2ae;
+  border-radius: 12px;
+  padding: 14px 18px;
+  text-align: center;
+  font-size: 14px;
+}
+
+/* ---------- الديمو ---------- */
+.demo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+.demo-card {
+  background: var(--card);
+  border: 1px solid #e5e9e7;
+  border-radius: 16px;
+  padding: 22px;
+  text-align: center;
+  text-decoration: none;
+  color: var(--ink);
+  transition: transform .12s ease, border-color .12s ease;
+}
+.demo-card:hover { transform: translateY(-3px); border-color: var(--green-2); }
+.demo-ic { font-size: 38px; margin-bottom: 8px; }
+.demo-card h3 { font-size: 17px; font-weight: 800; }
+.demo-card p { font-size: 13px; color: var(--muted); margin: 4px 0 10px; }
+.demo-link { color: var(--green-2); font-weight: 700; font-size: 14px; }
+.section .tiny { text-align: center; }
+
+/* ---------- خطوات ---------- */
+.steps { max-width: 560px; margin: 0 auto; padding-right: 22px; }
+.steps li { margin-bottom: 14px; font-size: 15px; }
+
+/* ---------- السعر ---------- */
+.pricing { text-align: center; }
+.price-card {
+  max-width: 420px; margin: 0 auto;
+  background: var(--card);
+  border: 2px solid var(--green-2);
+  border-radius: 20px;
+  padding: 28px 24px;
+  text-align: center;
+}
+.free-badge {
+  display: inline-block;
+  background: #fff3cd; color: #8a6d00;
+  border-radius: 999px;
+  padding: 5px 16px; font-size: 13px; font-weight: 800;
+  margin-bottom: 10px;
+}
+.price { font-size: 46px; font-weight: 900; color: var(--green); }
+.price span { font-size: 15px; font-weight: 600; color: var(--muted); }
+.price-card ul { list-style: none; text-align: right; margin: 16px 0 4px; }
+.price-card li { font-size: 14px; margin-bottom: 8px; }
+.price-card .tiny { margin-top: 10px; }
+
+/* ---------- فوتر ---------- */
+footer {
+  background: var(--ink);
+  color: #cfd8dc;
+  text-align: center;
+  padding: 32px 20px;
+  font-size: 14px;
+}
+footer .tiny { color: #8a9aa3; }
+footer a { color: var(--wa); text-decoration: none; font-weight: 700; }
+
+@media (max-width: 480px) {
+  .hero h1 { font-size: 24px; }
+  .btn-lg { font-size: 15px; padding: 12px 20px; }
+}

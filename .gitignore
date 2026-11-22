@@ -1,0 +1,6 @@
+config.js
+node_modules/
+frames/
+shots/
+*.log
+.DS_Store
