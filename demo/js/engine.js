@@ -6,7 +6,17 @@
    مصدر كل إجابة واضح، وأي سؤال مش مؤكد يتحول لموظف.
    ============================================================ */
 (function (root) {
-  const C = root.CATALOG || require("./catalog.js");
+  // الكتالوج بيتحمل ديناميكي (app.js بيحقن ملف المحل من stores/) —
+  // فلازم قراءة كسولة: Proxy بينادي root.CATALOG وقت الاستخدام مش وقت التحميل.
+  const C = new Proxy(
+    {},
+    {
+      get: (_t, k) => {
+        const cat = root.CATALOG || (typeof require !== "undefined" ? require("./catalog.js") : null);
+        return cat ? cat[k] : undefined;
+      },
+    }
+  );
 
   /* ---------- أدوات نصية عربية ---------- */
   const AR_DIGITS = { "٠": "0", "١": "1", "٢": "2", "٣": "3", "٤": "4", "٥": "5", "٦": "6", "٧": "7", "٨": "8", "٩": "9" };
