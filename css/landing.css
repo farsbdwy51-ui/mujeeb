@@ -162,6 +162,7 @@ footer a { color: var(--wa); text-decoration: none; font-weight: 700; }
 
 /* ---------- زرار الثيم ---------- */
 #theme {
+  margin-inline-start: auto;
   background: transparent;
   border: 1.5px solid #cdd8d4;
   border-radius: 999px;
