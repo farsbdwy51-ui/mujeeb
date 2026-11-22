@@ -159,3 +159,35 @@ footer a { color: var(--wa); text-decoration: none; font-weight: 700; }
   .hero h1 { font-size: 24px; }
   .btn-lg { font-size: 15px; padding: 12px 20px; }
 }
+
+/* ---------- زرار الثيم ---------- */
+#theme {
+  background: transparent;
+  border: 1.5px solid #cdd8d4;
+  border-radius: 999px;
+  font-size: 15px;
+  padding: 5px 11px;
+  cursor: pointer;
+  margin-inline-end: 10px;
+}
+
+/* ---------- الوضع الليلي ---------- */
+html[data-theme="dark"] {
+  --green: #25d366;
+  --green-2: #25d366;
+  --ink: #e9edef;
+  --muted: #9fb0ba;
+  --bg: #0f1519;
+  --card: #1b232b;
+}
+html[data-theme="dark"] nav { background: rgba(15,21,25,.92); border-bottom-color: #26303a; }
+html[data-theme="dark"] #theme { border-color: #37444d; }
+html[data-theme="dark"] .hero { background: linear-gradient(180deg, #0d2620 0%, var(--bg) 100%); }
+html[data-theme="dark"] .badge { background: #1b232b; color: #25d366; border-color: #2b363f; }
+html[data-theme="dark"] .btn-outline { color: #25d366; border-color: #25d366; }
+html[data-theme="dark"] .section.alt { background: #121a20; }
+html[data-theme="dark"] .card, html[data-theme="dark"] .demo-card { border-color: #2b363f; }
+html[data-theme="dark"] .esc-note { background: #26220f; border-color: #4a4020; color: #e8d9a0; }
+html[data-theme="dark"] .price-card { border-color: #25d366; }
+html[data-theme="dark"] .free-badge { background: #3a3010; color: #f0d878; }
+html[data-theme="dark"] footer { background: #05080a; }

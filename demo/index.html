@@ -8,7 +8,16 @@
   <meta name="theme-color" content="#075e54" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css?v=2" />
+  <script>
+    // تطبيق الثيم قبل الرسم عشان مفيش وميض — محفوظ أو تفضيل النظام
+    (function () {
+      var t = null;
+      try { t = localStorage.getItem("mujeeb_theme"); } catch (e) {}
+      if (!t) t = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      document.documentElement.dataset.theme = t;
+    })();
+  </script>
+  <link rel="stylesheet" href="css/style.css?v=3" />
 </head>
 <body>
   <div class="phone">
@@ -19,6 +28,7 @@
         <div class="hstatus">متصل الآن</div>
         <div id="mode"></div>
       </div>
+      <button id="theme" title="تبديل الوضع الليلي/النهاري">🌙</button>
       <button id="reset" title="إعادة الديمو من الأول">↺</button>
     </header>
 
@@ -32,10 +42,10 @@
     </div>
   </div>
 
-  <script src="js/engine.js?v=2"></script>
+  <script src="js/engine.js?v=3"></script>
   <!-- config.js اختياري: انسخه من config.example.js وحط مفتاح OpenRouter -->
-  <script src="config.js?v=2" onerror="window.APP_CONFIG=window.APP_CONFIG||{}"></script>
-  <script src="js/llm-adapter.js?v=2"></script>
-  <script src="js/app.js?v=2"></script>
+  <script src="config.js?v=3" onerror="window.APP_CONFIG=window.APP_CONFIG||{}"></script>
+  <script src="js/llm-adapter.js?v=3"></script>
+  <script src="js/app.js?v=3"></script>
 </body>
 </html>

@@ -8,12 +8,22 @@
   <meta name="theme-color" content="#075e54" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/landing.css?v=2" />
+  <script>
+    // تطبيق الثيم قبل الرسم عشان مفيش وميض — محفوظ أو تفضيل النظام
+    (function () {
+      var t = null;
+      try { t = localStorage.getItem("mujeeb_theme"); } catch (e) {}
+      if (!t) t = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      document.documentElement.dataset.theme = t;
+    })();
+  </script>
+  <link rel="stylesheet" href="css/landing.css?v=3" />
 </head>
 <body>
 
   <nav>
     <div class="brand">مجيب <span>مساعد العملاء الذكي</span></div>
+    <button id="theme" title="تبديل الوضع الليلي/النهاري" aria-label="تبديل الوضع الليلي/النهاري">🌙</button>
     <a class="btn btn-sm" href="https://wa.me/201035605359?text=%D8%A3%D9%87%D9%84%D8%A7%D9%8B%D8%8C%20%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%AC%D8%B1%D8%A8%20%D9%85%D8%AC%D9%8A%D8%A8%20%D9%84%D9%85%D8%AA%D8%AC%D8%B1%D9%8A" target="_blank" rel="noopener">كلمنا واتساب</a>
   </nav>
 
@@ -107,5 +117,18 @@
     <p class="tiny">صنع في مصر بـ ❤️ — للتواصل: <a href="https://wa.me/201035605359" target="_blank" rel="noopener">واتساب</a></p>
   </footer>
 
+  <script>
+    (function () {
+      var btn = document.getElementById("theme");
+      function sync() { btn.textContent = document.documentElement.dataset.theme === "dark" ? "☀️" : "🌙"; }
+      btn.addEventListener("click", function () {
+        var next = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+        document.documentElement.dataset.theme = next;
+        try { localStorage.setItem("mujeeb_theme", next); } catch (e) {}
+        sync();
+      });
+      sync();
+    })();
+  </script>
 </body>
 </html>

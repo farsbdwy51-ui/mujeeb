@@ -216,6 +216,19 @@
     sendBtn.addEventListener("click", () => sendUser(inputEl.value));
     inputEl.addEventListener("keydown", (e) => { if (e.key === "Enter") sendUser(inputEl.value); });
 
+    /* ---------- تبديل الوضع الليلي/النهاري ---------- */
+    const themeBtn = document.getElementById("theme");
+    function syncThemeIcon() {
+      themeBtn.textContent = document.documentElement.dataset.theme === "dark" ? "☀️" : "🌙";
+    }
+    themeBtn.addEventListener("click", () => {
+      const next = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+      document.documentElement.dataset.theme = next;
+      try { localStorage.setItem("mujeeb_theme", next); } catch (e) {}
+      syncThemeIcon();
+    });
+    syncThemeIcon();
+
     document.getElementById("reset").addEventListener("click", () => {
       localStorage.removeItem(SK);
       localStorage.removeItem(HK);
